@@ -74,12 +74,11 @@ const Horizontalchart: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'http://localhost:5000/v1/data';
+      const url = 'https://nodejs-task-be.vercel.app/v1/data';
       const dataSet1: number[] = [];
       try {
         const response = await fetch(url);
         const res = await response.json();
-        console.log('API data', res);
         for (const val of res) {
           dataSet1.push(val.value);
         }
