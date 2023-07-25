@@ -11,9 +11,9 @@ import {
 import { Bar  } from 'react-chartjs-2';
 import { saveAs } from 'file-saver'; 
 
-import 'chartjs-plugin-zoom';
+import zoomPlugin from "chartjs-plugin-zoom";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend ,zoomPlugin);
 
 const options: any = {
   elements: {
@@ -33,17 +33,20 @@ const options: any = {
     zoom: {
       zoom: {
         wheel: {
-          enabled: true,
+          enabled: true // SET SCROOL ZOOM TO TRUE
         },
-        pinch: {
-          enabled: true,
-        },
-        mode: 'xy',
+        mode: "xy",
+        speed: 100
       },
       pan: {
         enabled: true,
-        mode: 'xy',
-      },
+        mode: "xy",
+        speed: 100
+      }
+    },
+    pan: {
+      enabled: true,
+      mode: 'xy',
     },
   },
 };
